@@ -34,7 +34,7 @@ public class ListGoodsServlet extends HttpServlet {
 		goodsList.add(new Goods(112, "小米手环", "小米手环", 199));
 		goodsList.add(new Goods(113, "小米耳机", "小米耳机", 99));
 		
-		//将商品保存到一个对象当中
+		//将商品保存到一个对象当中   ServletContext域对象
 		ServletContext sc =request.getServletContext();
 		sc.setAttribute("goods", goodsList);
 		
