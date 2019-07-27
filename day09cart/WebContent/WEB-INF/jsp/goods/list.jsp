@@ -22,13 +22,15 @@
 	
 		<% for(Goods goods: goodsList){ %>
 			<tr> 
+				<!-- 发送请求到后台GetGoodsServlet,上下文路径加访问路径，并且把商品的ID发送给后台处理 ，拼接url-->
 				<td><%=goods.getGoodsName() %></td>
-				<td><a href="" >查看</a></td>
+				<td><a href="<%=contextPath%>/goods/detail?goodsId=<%= goods.getGoodsId() %>" >查看</a></td>
 			</tr>
 		<%} %>
 		<tr>
 			<td colspan="2">
 				<a herf="">查看购物内容</a>
+				<!-- /cart/list -->
 			</td>
 		</tr>
 	</table>
