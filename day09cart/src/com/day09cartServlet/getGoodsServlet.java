@@ -29,9 +29,10 @@ public class getGoodsServlet extends HttpServlet {
 		if(o!=null){
 			List<Goods> goodsList=(List<Goods>) o;
 			for (Goods goods : goodsList) {
-				if(goods.getGoodsId()== Integer.parseInt(goodsId)){
+				if(goods.getGoodsId()==Integer.parseInt(goodsId)){
 					request.setAttribute("goods", goods);
-					request.getRequestDispatcher("").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/jsp/goods/detail.jsp").forward(request, response);
+					// /WEB-INF/jsp/goods/detail.jsp
 				}
 			}
 		}
