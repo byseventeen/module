@@ -63,7 +63,7 @@ public class AddServlet extends HttpServlet {
 			myCart.put(goods, Integer.parseInt(amount));
 		}
 		//处理中文乱码
-		response.setContentType("text/html; charset=utf-8");
+		response.setContentType ("text/html; charset=utf-8");
 		//把map添加到session对象的myCart属性中
 		session.setAttribute("myCart",myCart);
 		response.getWriter().write("商品加入购物车成功！");
