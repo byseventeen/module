@@ -66,9 +66,9 @@ public class AddServlet extends HttpServlet {
 		response.setContentType ("text/html; charset=utf-8");
 		//把map添加到session对象的myCart属性中
 		session.setAttribute("myCart",myCart);
-		response.getWriter().write("商品加入购物车成功！");
-		response.getWriter().write("<a href=''>请继续浏览商品</a>");
-		response.getWriter().write("<a href=''>浏览购物车</a>");
+		response.getWriter().write("商品加入购物车成功！</br>");
+		response.getWriter().write("<a href='"+request.getContextPath()+"/goods/list'>请继续浏览商品</a> </br>");
+		response.getWriter().write("<a href='"+request.getContextPath()+"/cart/list'>浏览购物车</a>");
 	}
 	 
 	
