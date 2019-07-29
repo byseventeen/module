@@ -20,7 +20,9 @@ public class loginServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// 获取参数
+		String userName=request.getParameter("userName");
+		String userPass=request.getParameter("userPass");
 	}
 
 }
