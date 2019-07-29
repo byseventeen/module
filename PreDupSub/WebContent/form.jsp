@@ -12,7 +12,7 @@
 	String tokenValue=new Date().getTime()+"";
 	session.setAttribute("token", tokenValue);
 	%>
-	<form>
+	<form action="/PreDupSub/Form" method="post">
 		<input type="hidden" name="token"  value="<%=tokenValue %>"/>
 		姓名: <input type="text" name="name" />
   		密码: <input type="password" name="name" />
