@@ -8,6 +8,8 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /* 过滤器*/
 public class MyFilter implements Filter {
@@ -21,10 +23,22 @@ public class MyFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("调用过滤器中。。。");
-		//放行
-		chain.doFilter(request, response);
+		HttpServletRequest req=(HttpServletRequest) request;
+		HttpServletResponse resp=(HttpServletResponse) response;
+		
+		String requestURL=req.getRequestURI();
+		if (requestURL.endsWith("form.jsp")||requestURL.endsWith("login")) {
+			chain.doFilter(request, response);
+		}
+		else {
+			Object o=req.getSession().getAttribute("loginUser");
+			if (o!=null) {
+				chain.doFilter(request, response);
+			}
+			else {
+				resp.sendRedirect(req.getContextPath()+"/form.jsp");
+			}
+		}
 		
 	}
 	

@@ -7,8 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>	
+	<%
+		String msg = (String)request.getAttribute("msg");
+		System.out.println(msg);
+	%>
 	<form action="${pageContext.request.contextPath}/login"  method="post">
-		用户名：<input type="text" value="userName"><br/>
+		<%
+		while(request.getAttribute("msg")!=null){
+			response.getWriter().write(request.getAttribute("msg").toString());
+		}
+		%>
+		<br>
+
+		用户名：<input type="text" name="userName"><br/>
 		密码：<input type="password" name="userPass"/><br/>
 		<input type="submit" value="登录"/><br/>
 	</form>
