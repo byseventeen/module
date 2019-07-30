@@ -13,13 +13,13 @@ public class MyServletContextListener implements ServletContextListener {
 	// 创建servletContext对象时候自动调用
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("ServletContext对象被创建了..");
+		System.out.println("ServletContext哈哈哈哈哈对象被创建了..");
 	}
 
 	// ServletContext对象被销毁时候自动调用
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("ServletContext对象被销毁了..");
+		System.out.println("ServletContext哈哈哈哈哈对象被销毁了..");
 	}
 
 }
