@@ -34,63 +34,63 @@ public class MyServletListener implements ServletContextListener {
 
 		System.out.println("ServletContext对象被创建了..");
 		String path = "com.CreateTable.base.Employee";
-		try {
-			//获取类对象
-			Class employee = Class.forName(path);
-			//通过Class对象分别获取类名和属性信息     获取完整类名
-			String employeer = employee.getSimpleName();
-			//获取实体类的所有属性信息，返回Field数组  
-			Field[] field02 = employee.getDeclaredFields();
-			//集合的Key代表属性名，Value代表属性类型
-			 Map<String, String> map = new HashMap<String,String>();
-
-			for (Field field : field02) {
-				//获取属性名字
-				String propertyName= field.getName().toString();
-				// map.put("name", propertyName);
-				//获取属性类型
-				String propertyType=field.getType().toString();
-				map.put(propertyName, propertyType); 
-				System.out.println(field.getType()); 
-			}
-			
-			for (Map.Entry<String, String> entry:  map.entrySet()) {
-
-				String name=entry.getKey();
-				String type=entry.getValue();
-				
-				System.out.println(name+"...."+type); 
-			}
-			
 	
-				// 获取数据库连接
-				Connection conn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/aa", 
-						"root", 
-						"root");
-				// 创建PreparedStatement对象
-				/*PreparedStatement pstmt = conn.prepareStatement("insert into employeer(stu_name, gender, birthdate"
-						+ ", phone, hobby) values(?, ?, ?, ?, ?)");
-				// 设置参数
-				pstmt.setString(1, userName);
-				pstmt.setBoolean(2, true);
-				pstmt.setDate(3, DateUtil.getCurrentDate());
-				pstmt.setString(4, phone);
-				pstmt.setString(5, Arrays.toString(hobby));
-				// 执行execute操作 
-				pstmt.execute();
-				// 关闭连接
-				conn.close();*/
-			
-			//通过JDBC创建表，表的名字就是类的名字（小写），表字段的名字就是属性名字（小写），字段类型可以根据属性类型进行动态指定。
-			 
+			//获取类对象，通过Class对象分别获取类名和属性信息
+			Class employee;
+			try {
+				employee = Class.forName(path);
+				String employeer = employee.getSimpleName();
+				//获取实体类的所有属性信息，返回Field数组  
+				Field[] field02 = employee.getDeclaredFields();
+				//集合的Key代表属性名，Value代表属性类型
+				 Map<String, Class> map = new HashMap<String,Class>();
+
+				for (Field field : field02) {
+					String propertyName= field.getName().toString();
+					Class propertyType=field.getType();
+					map.put(propertyName, propertyType); 
+				}						
+				createTable(employeer, map);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}     
+
+	}
 	
-			
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void createTable(String employeer,  Map<String, Class> map) throws SQLException{
+		//通过JDBC创建表，表的名字就是类的名字（小写），表字段的名字就是属性名字（小写），字段类型可以根据属性类型进行动态指定。
+		// 获取数据库连接
+		Connection conn = DriverManager.getConnection(
+				"jdbc:mysql://localhost/test", 
+				"root", 
+				"root");
+		StringBuilder sql=new StringBuilder();			 
+		
+		sql.append("create table ");
+		sql.append(" ");
+		sql.append(employeer.toLowerCase());
+		sql.append("(");
+		for (Map.Entry<String, Class> entry:  map.entrySet()) {
+			String name=entry.getKey();
+			Class type=entry.getValue();
+			sql.append(name);
+			sql.append(" ");
+			if (type==Integer.class) {
+				sql.append("int,");
+			}
+			if (type==String.class) {
+				sql.append("varchar(255),");
+			}		
 		}
+		// 删除最后字段的逗号
+		sql.deleteCharAt(sql.length() - 1);
+		sql.append(")");
+		// 创建Statement对象
+		PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		// 执行sql
+		pstmt.execute();		
+		pstmt.close();
 	}
 	
 	@Override
