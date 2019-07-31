@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- form表单提交到对应的servlet里面 -->
-	<form action="" method="post">
+	<form action="/Books/add" method="post">
 		<table border="1" cellspacing="0">
 			<tr>
 				<td>书名：</td>
