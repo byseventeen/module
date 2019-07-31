@@ -6,14 +6,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.CreateTable.base.Employee;
-import com.chinasofti.stumgr.utils.DateUtil;
 import com.sun.java.util.*;
 
 public class MyServletListener implements ServletContextListener {
@@ -40,7 +42,7 @@ public class MyServletListener implements ServletContextListener {
 			Field[] field02 = employee.getDeclaredFields();
 			//集合的Key代表属性名，Value代表属性类型
 			 Map<String, String> map = new HashMap<String,String>();
-			 
+
 			for (Field field : field02) {
 				//获取属性名字
 				String propertyName= field.getName().toString();
@@ -49,9 +51,19 @@ public class MyServletListener implements ServletContextListener {
 				String propertyType=field.getType().toString();
 				map.put("type", propertyType); 
 				System.out.println(field.getType()); 
+			}
+			for (Map.Entry<String, String> entry:  map.entrySet()) {
+
+				String name=entry.getKey();
+				String type=entry.getValue();
 				
+				System.out.println(name+"...."+type); 
+//				System.out.println(type);
+			}
+			
+	
 				// 获取数据库连接
-				Connection conn = DriverManager.getConnection(
+				/*Connection conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/aa", 
 						"root", 
 						"root");
@@ -67,8 +79,8 @@ public class MyServletListener implements ServletContextListener {
 				// 执行execute操作 
 				pstmt.execute();
 				// 关闭连接
-				conn.close();
-			}
+				conn.close();*/
+			
 			//通过JDBC创建表，表的名字就是类的名字（小写），表字段的名字就是属性名字（小写），字段类型可以根据属性类型进行动态指定。
 			 
 	

@@ -27,7 +27,7 @@ public class ShowServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		HttpSession session=request.getSession();
 		Object o=session.getAttribute("myCart");
-		
+
 		Map<Goods, Integer> myCart = null;
 		if (o!=null) {
 			myCart = (Map<Goods, Integer>) o;
