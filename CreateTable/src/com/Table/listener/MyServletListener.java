@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -37,7 +38,7 @@ public class MyServletListener implements ServletContextListener {
 			//获取类对象
 			Class employee = Class.forName(path);
 			//通过Class对象分别获取类名和属性信息     获取完整类名
-			String employeer = employee.getName();
+			String employeer = employee.getSimpleName();
 			//获取实体类的所有属性信息，返回Field数组  
 			Field[] field02 = employee.getDeclaredFields();
 			//集合的Key代表属性名，Value代表属性类型
@@ -52,23 +53,23 @@ public class MyServletListener implements ServletContextListener {
 				map.put(propertyName, propertyType); 
 				System.out.println(field.getType()); 
 			}
+			
 			for (Map.Entry<String, String> entry:  map.entrySet()) {
 
 				String name=entry.getKey();
 				String type=entry.getValue();
 				
 				System.out.println(name+"...."+type); 
-//				System.out.println(type);
 			}
 			
 	
 				// 获取数据库连接
-				/*Connection conn = DriverManager.getConnection(
+				Connection conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/aa", 
 						"root", 
 						"root");
 				// 创建PreparedStatement对象
-				PreparedStatement pstmt = conn.prepareStatement("insert into employeer(stu_name, gender, birthdate"
+				/*PreparedStatement pstmt = conn.prepareStatement("insert into employeer(stu_name, gender, birthdate"
 						+ ", phone, hobby) values(?, ?, ?, ?, ?)");
 				// 设置参数
 				pstmt.setString(1, userName);
@@ -86,7 +87,7 @@ public class MyServletListener implements ServletContextListener {
 	
 			
 			
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
