@@ -46,10 +46,10 @@ public class MyServletListener implements ServletContextListener {
 			for (Field field : field02) {
 				//获取属性名字
 				String propertyName= field.getName().toString();
-				map.put("name", propertyName);
+				// map.put("name", propertyName);
 				//获取属性类型
 				String propertyType=field.getType().toString();
-				map.put("type", propertyType); 
+				map.put(propertyName, propertyType); 
 				System.out.println(field.getType()); 
 			}
 			for (Map.Entry<String, String> entry:  map.entrySet()) {
