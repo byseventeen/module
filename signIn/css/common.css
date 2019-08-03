@@ -3,7 +3,9 @@ body {
     font: .85em/1.4 "微软雅黑", "Microsoft Yahei", 'Arial', 'san-serif';
     color: #666;
     margin: 0;
-    padding: 0
+    padding: 0;
+    background: #0BE093;
+  font-family: 'Open Sans', sans-serif;
 }
 img {
     max-width: 100%;
@@ -25,7 +27,8 @@ ul, p {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-weight: 100
+    font-weight: 100;
+    color: #fff;
 }
 ul, li {
     list-style: none
@@ -113,6 +116,16 @@ header {
     margin: 0 5px 20px;
     background-color: #eee;
 }
+.box{
+     width:28%;
+    margin:0 auto;
+    text-align: center;
+    background: #323542;
+    padding:4em;
+}
+.location {
+  padding: 1em 0;
+}
 /*------------------- 华丽分割线 -----------------------*/
 
 #dialogBg {
@@ -169,27 +182,37 @@ header {
     text-align: center;
 }
 .ipt {
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
     box-shadow: 0 0 3px #ccc inset;
     -webkit-box-shadow: 0 0 3px #ccc inset;
-    margin-left: 5px;
+    width: 60%;
+    padding: 1.1em 3em 1.1em 1em;
+    color: #858282;
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+    font-weight: 500;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -webkit- border-radius: 0.3em;
+     margin:0.7em 0;
 }
 .ipt:focus {
     outline: none;
     border-color: #66afe9;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+
 }
 .submitBtn {
-    width: 90px;
+ /*   width: 90px;
     height: 30px;
     line-height: 30px;
     font-family: "微软雅黑", "microsoft yahei";
     cursor: pointer;
-    margin-top: 10px;
+    margin: 1em 0;
     display: inline-block;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -198,6 +221,19 @@ header {
     color: #fff;
     box-shadow: 0 -3px 0 #2a6496 inset;
     -webkit-box-shadow: 0 -3px 0 #2a6496 inset;
+      font-size: 20px;*/
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  padding: 17px 10px;
+  width:80%;
+  border:3px solid #0bd38a;
+  background: #0bd38a;
+  border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
 }
 .ysubmit {
     margin: 0 auto;

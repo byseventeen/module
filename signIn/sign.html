@@ -9,7 +9,6 @@
 <meta content="telephone=no" name="format-detection">
 
 <link rel="stylesheet" href="css/common.css"/>
-<!-- <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript">
 var w,h,className;
@@ -29,7 +28,6 @@ $(function(){
     
     //显示弹框
     $('.submitBtn').click(function(){
-
         className = $(this).attr('class');
         $('#dialogBg').fadeIn(300);
         $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
@@ -47,9 +45,13 @@ $(function(){
 <body>
     <div id="wrapper">
 
-    <header><h2>学生课程签到</h2></header>
+ 
     
     <div class="box">
+           <header><h2>学生课程签到</h2></header>
+            <div class="location">
+                <img alt="" class="img-responsive" src="images/location.png"/>
+            </div>
         <div class="demo">
             <form action="" method="post" id="editForm">
                 <ul class="editInfos">
@@ -58,7 +60,6 @@ $(function(){
                     <li>
                         <input type="submit" value="签到" class="submitBtn"/>
                     </li>
-                    <a class="bounceInDown">签到</a>
                 </ul>
             </form>
             
