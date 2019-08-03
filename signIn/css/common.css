@@ -92,10 +92,10 @@ a:focus {
         transform: translateY(0);
     }
 }
-/*.submitBt {
+.submitBt {
     -webkit-animation-name: submitBt;
     animation-name: submitBt;
-}*/
+}
 /*------------------- 华丽分割线 -----------------------*/
 
 header {

@@ -9,7 +9,7 @@
 <meta content="telephone=no" name="format-detection">
 
 <link rel="stylesheet" href="css/common.css"/>
-<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 var w,h,className;
 function getSrceenWH(){
@@ -29,7 +29,7 @@ $(function(){
     //显示弹框
     $('.submitBt').click(function(){
         className = $(this).attr('class');
-        $('#dialogBg').fadeIn(300);
+        $('#dialogBg').fadeIn(1000);
         $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
     });
     
@@ -50,10 +50,10 @@ $(function(){
                 <img alt="" class="img-responsive" src="images/location.png"/>
             </div>
         <div class="demo">
-            <form action="dd" method="post" >
+            <form action="" method="post" >
                 <ul class="editInfos">
-                    <li><input type="text" name="" required  placeholder="请输入学号" class="ipt" /></label></li>
-                    <li><input type="text" name="" required placeholder="请输入密码" class="ipt" /></label></li>
+                    <li><input type="text" name="" required="" placeholder="请输入学号" class="ipt" /></label></li>
+                    <li><input type="text" name="" required=""  placeholder="请输入密码" class="ipt" /></label></li>
                     <li>
                         <input type="submit" value="签到" class="submitBt"/>
                     </li>
