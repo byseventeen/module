@@ -9,7 +9,8 @@
 <meta content="telephone=no" name="format-detection">
 
 <link rel="stylesheet" href="css/common.css"/>
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<!-- <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
+<script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript">
 var w,h,className;
 function getSrceenWH(){
@@ -27,7 +28,8 @@ $(function(){
     getSrceenWH();
     
     //显示弹框
-    $('.box a').click(function(){
+    $('.submitBtn').click(function(){
+
         className = $(this).attr('class');
         $('#dialogBg').fadeIn(300);
         $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
@@ -45,14 +47,21 @@ $(function(){
 <body>
     <div id="wrapper">
 
-    <header><h2>移动端之“CSS3多动画弹框”</h2></header>
+    <header><h2>学生课程签到</h2></header>
     
     <div class="box">
         <div class="demo">
-            <a href="javascript:;" class="bounceIn">DEMO1</a>
-            <a href="javascript:;" class="rollIn">DEMO2</a>
-            <a href="javascript:;" class="bounceInDown">DEMO3</a>
-            <a href="javascript:;" class="flipInX">DEMO4</a>
+            <form action="" method="post" id="editForm">
+                <ul class="editInfos">
+                    <li><label><font color="#ff0000">* </font>学号：<input type="text" name="" required value="" class="ipt" /></label></li>
+                    <li><label><font color="#ff0000">* </font>密码：<input type="text" name="" required value="" class="ipt" /></label></li>
+                    <li>
+                        <input type="submit" value="签到" class="submitBtn"/>
+                    </li>
+                    <a class="bounceInDown">签到</a>
+                </ul>
+            </form>
+            
         </div>
         
         <div id="dialogBg"></div>
@@ -61,12 +70,13 @@ $(function(){
             <div class="dialogTop">
                 <a href="javascript:;" class="claseDialogBtn">关闭</a>
             </div>
-            <form action="" method="post" id="editForm">
+             <form action="" method="post" id="editForm">
                 <ul class="editInfos">
-                    <li><label><font color="#ff0000">* </font>昵称：<input type="text" name="" required value="" class="ipt" /></label></li>
-                    <li><label><font color="#ff0000">* </font>手机：<input type="text" name="" required value="" class="ipt" /></label></li>
-                    <li><label><font color="#ff0000">* </font>地址：<input type="text" name="" required value="" class="ipt" /></label></li>
-                    <li><input type="submit" value="确认提交" class="submitBtn" /></li>
+                        <li class="infoli">姓名: <label>小明</label></li>
+                        <li class="infoli">学号: <label>001</label></li>
+                        <li class="infoli">课程: <label>Java设计模式</label></li>
+                        <input type="submit" value="确认签到" class="ysubmit"/>
+                    </li>
                 </ul>
             </form>
         </div>
