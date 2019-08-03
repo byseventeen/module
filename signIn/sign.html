@@ -27,7 +27,7 @@ $(function(){
     getSrceenWH();
     
     //显示弹框
-    $('.submitBtn').click(function(){
+    $('.submitBt').click(function(){
         className = $(this).attr('class');
         $('#dialogBg').fadeIn(300);
         $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
@@ -43,22 +43,19 @@ $(function(){
 </script>
 </head>
 <body>
-    <div id="wrapper">
-
- 
-    
+    <div id="wrapper">   
     <div class="box">
            <header><h2>学生课程签到</h2></header>
             <div class="location">
                 <img alt="" class="img-responsive" src="images/location.png"/>
             </div>
         <div class="demo">
-            <form action="" method="post" id="editForm">
+            <form action="dd" method="post" >
                 <ul class="editInfos">
-                    <li><label><font color="#ff0000">* </font>学号：<input type="text" name="" required value="" class="ipt" /></label></li>
-                    <li><label><font color="#ff0000">* </font>密码：<input type="text" name="" required value="" class="ipt" /></label></li>
+                    <li><input type="text" name="" required  placeholder="请输入学号" class="ipt" /></label></li>
+                    <li><input type="text" name="" required placeholder="请输入密码" class="ipt" /></label></li>
                     <li>
-                        <input type="submit" value="签到" class="submitBtn"/>
+                        <input type="submit" value="签到" class="submitBt"/>
                     </li>
                 </ul>
             </form>
@@ -84,8 +81,7 @@ $(function(){
     </div>
     
 </div>
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-</div>
+
 </body>
 </html>
 

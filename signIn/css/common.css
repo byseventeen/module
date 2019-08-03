@@ -48,7 +48,7 @@ a:focus {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }
-@-webkit-keyframes submitBtn {
+@-webkit-keyframes submitBt {
     0% {
         opacity: 0;
         -webkit-transform: translateY(-2000px);
@@ -68,7 +68,7 @@ a:focus {
         transform: translateY(0);
     }
 }
-@keyframes submitBtn {
+@keyframes submitBt {
     0% {
         opacity: 0;
         -webkit-transform: translateY(-2000px);
@@ -92,10 +92,10 @@ a:focus {
         transform: translateY(0);
     }
 }
-.submitBtn {
-    -webkit-animation-name: submitBtn;
-    animation-name: submitBtn;
-}
+/*.submitBt {
+    -webkit-animation-name: submitBt;
+    animation-name: submitBt;
+}*/
 /*------------------- 华丽分割线 -----------------------*/
 
 header {
@@ -177,9 +177,11 @@ header {
     padding: 15px 0;
 }
 .editInfos li {
-    width: 90%;
-    margin: 8px auto auto;
+    width: 100%;
+    margin: 0 auto auto;
     text-align: center;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
 }
 .ipt {
     box-shadow: 0 0 3px #ccc inset;
@@ -206,28 +208,14 @@ header {
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
 
 }
-.submitBtn {
- /*   width: 90px;
-    height: 30px;
-    line-height: 30px;
-    font-family: "微软雅黑", "microsoft yahei";
-    cursor: pointer;
-    margin: 1em 0;
-    display: inline-block;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    text-align: center;
-    background-color: #428bca;
-    color: #fff;
-    box-shadow: 0 -3px 0 #2a6496 inset;
-    -webkit-box-shadow: 0 -3px 0 #2a6496 inset;
-      font-size: 20px;*/
+.submitBt {
   font-weight: 300;
   color: #fff;
   cursor: pointer;
   outline: none;
   padding: 17px 10px;
-  width:80%;
+  width:78%;
+  margin: 20px auto;
   border:3px solid #0bd38a;
   background: #0bd38a;
   border-radius: 0.3em;
@@ -256,3 +244,4 @@ header {
     font-family: "微软雅黑";
     color: black;
 }
+
